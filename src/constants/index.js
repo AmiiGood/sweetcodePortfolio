@@ -365,7 +365,7 @@ const WORK_LOCATION = {
     },
     // ▶ Project 4
     {
-      id: 7,
+      id: 8,
       name: "Neura",
       icon: "/images/folder.png",
       kind: "folder",
