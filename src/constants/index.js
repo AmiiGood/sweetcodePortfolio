@@ -363,6 +363,49 @@ const WORK_LOCATION = {
         },
       ],
     },
+    // ▶ Project 4
+    {
+      id: 7,
+      name: "Neura",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[7vh] left-100",
+      children: [
+        {
+          id: 1,
+          name: "Neura.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Neura is a knowledge-focused web app designed for developers to organize technical notes, patterns, and concepts in a clean, structured way.",
+            "Instead of jumping between docs and external resources, Neura lets you keep everything in one place—complete with diagrams, code examples, and clear explanations.",
+            "It also includes an AI-powered chat that allows you to ask questions directly based on your own notes, turning your knowledge base into an interactive assistant.",
+            "Built with modern web technologies, Neura is fast, intuitive, and optimized for learning, reference, and daily developer workflows.",
+          ],
+        },
+        {
+          id: 2,
+          name: "neura.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://neura-orcin.vercel.app/",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "neura.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-4.png",
+        },
+      ],
+    },
   ],
 };
 
