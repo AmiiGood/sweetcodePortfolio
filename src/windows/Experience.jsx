@@ -1,18 +1,19 @@
 import { WindowControls } from "#components";
-import { experiences } from "#constants";
+import { education, experiences } from "#constants";
 import WindowWrapper from "#hoc/WindowWrapper";
+import clsx from "clsx";
 import {
   ChevronLeft,
   ChevronRight,
   Copy,
+  Download,
+  GraduationCap,
+  MapPin,
   PanelLeft,
   Plus,
   Search,
   Share,
   ShieldHalf,
-  Briefcase,
-  MapPin,
-  Calendar,
 } from "lucide-react";
 import React from "react";
 
@@ -49,85 +50,96 @@ const Experience = () => {
       </div>
 
       <div className="experience-container">
-        {/* Header Section */}
+        {/* Header */}
         <div className="experience-header">
-          <div className="experience-title">
-            <Briefcase className="title-icon" />
-            <h1>Professional Experience</h1>
+          <div>
+            <p className="experience-eyebrow">Career</p>
+            <h1>Work Experience</h1>
+            <p className="experience-subtitle">
+              2+ years building modern web applications
+            </p>
           </div>
-          <p className="experience-subtitle">
-            2+ years building modern web applications
-          </p>
+
+          <a
+            className="cv-button"
+            href="/files/CV_AlexisAlvarez.pdf"
+            download="CV_AlexisAlvarez.pdf"
+          >
+            <Download size={14} />
+            Download CV
+          </a>
         </div>
 
-        {/* Timeline */}
-        <div className="experience-timeline">
-          {experiences.map(
-            (
-              {
-                id,
-                company,
-                position,
-                period,
-                location,
-                description,
-                technologies,
-              },
-              index
-            ) => (
-              <div key={id} className="timeline-item">
-                {/* Timeline Line */}
-                <div className="timeline-line">
-                  <div className="timeline-dot" />
-                  {index !== experiences.length - 1 && (
-                    <div className="timeline-connector" />
-                  )}
+        {/* Experience cards */}
+        <div className="experience-list">
+          {experiences.map((exp) => (
+            <article
+              key={exp.id}
+              className="exp-card"
+              style={{ "--accent": exp.accent }}
+            >
+              <div className="exp-top">
+                <div
+                  className="exp-monogram"
+                  style={{ background: exp.gradient }}
+                >
+                  {exp.initials}
                 </div>
 
-                {/* Content Card */}
-                <div className="experience-card">
-                  {/* Header */}
-                  <div className="card-header">
-                    <div className="card-header-content">
-                      <h3 className="position-title">{position}</h3>
-                      <p className="company-name">{company}</p>
-                    </div>
-                    <div className="card-meta">
-                      <span className="meta-item">
-                        <Calendar size={14} />
-                        {period}
-                      </span>
-                      <span className="meta-item">
-                        <MapPin size={14} />
-                        {location}
-                      </span>
-                    </div>
-                  </div>
+                <div className="exp-heading">
+                  <h3>{exp.position}</h3>
+                  <p className="exp-company">{exp.company}</p>
+                </div>
 
-                  {/* Description */}
-                  <div className="card-description">
-                    {description.map((item, idx) => (
-                      <div key={idx} className="description-item">
-                        <span className="bullet">•</span>
-                        <p>{item}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Technologies */}
-                  {technologies && (
-                    <div className="card-technologies">
-                      {technologies.map((tech, idx) => (
-                        <span key={idx} className="tech-badge">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                <div className="exp-when">
+                  <span
+                    className={clsx("period-pill", exp.current && "current")}
+                  >
+                    {exp.period}
+                  </span>
+                  <span className="exp-location">
+                    <MapPin size={12} />
+                    {exp.location}
+                  </span>
                 </div>
               </div>
-            )
-          )}
+
+              <ul className="exp-bullets">
+                {exp.description.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+
+              <div className="exp-tech">
+                {exp.technologies.map((tech) => (
+                  <span key={tech} className="exp-chip">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Education */}
+        <div className="edu-section">
+          <div className="edu-title">
+            <GraduationCap size={20} />
+            <h2>Education</h2>
+          </div>
+
+          <div className="edu-grid">
+            {education.map((edu) => (
+              <div key={edu.id} className="edu-card">
+                <p className="edu-degree">{edu.degree}</p>
+                <p className="edu-school">{edu.institution}</p>
+                <div className="edu-meta">
+                  <span>{edu.location}</span>
+                  <span>{edu.period}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

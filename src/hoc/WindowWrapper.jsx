@@ -28,6 +28,9 @@ const WindowWrapper = (Component, windowKey) => {
       if (!el) return;
 
       const [instance] = Draggable.create(el, {
+        // zIndexBoost writes its own inline z-index on press, fighting the
+        // store-managed stacking order — new windows would open behind it
+        zIndexBoost: false,
         onPress: () => focusWindow(windowKey),
       });
 

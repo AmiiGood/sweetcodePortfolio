@@ -18,7 +18,7 @@ const Home = () => {
   };
 
   useGSAP(() => {
-    Draggable.create(".folder");
+    Draggable.create(".folder", { zIndexBoost: false });
   }, []);
 
   return (
