@@ -19,7 +19,10 @@ const Contact = () => {
         />
 
         <h3>Let's Connect</h3>
-        <p>Got an idea? A bug to squash? Or just wanna talk tech? I'm in.</p>
+        <p>
+          Questions about a project, work, or anything I've built? Email is the
+          fastest way to reach me.
+        </p>
         <p>amiigood3009@gmail.com</p>
 
         <ul>

@@ -1,16 +1,29 @@
-# React + Vite
+# Alexis Alvarez · Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My portfolio as a macOS-style desktop: projects live in Finder folders, experience opens in Safari, the tech stack in Terminal and the resume as a PDF.
 
-Currently, two official plugins are available:
+**Live:** [portfolioalexisalvarez.vercel.app](https://portfolioalexisalvarez.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+React 19 · Vite · Tailwind CSS 4 · GSAP (Draggable) · Zustand + Immer · react-pdf
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run it
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Where things are
+
+| What | File |
+|---|---|
+| Projects, experience, stack, socials | `src/constants/index.js` |
+| Windows (Finder, Terminal, Contact…) | `src/windows/` |
+| Window open/close/focus state | `src/store/window.js` |
+| Drag and open animation for windows | `src/hoc/WindowWrapper.jsx` |
+| Project screenshots (WebP) | `public/images/project-*.webp` |
+| Resume | `public/files/CV_AlexisAlvarez.pdf` |
+
+To add a project, add a folder to `WORK_LOCATION` in `src/constants/index.js`: a `.txt` with the description, plus links and a screenshot if it has them.
